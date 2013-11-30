@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.softexploration.lab.ejb.performance</groupId>
+	<artifactId>com.softexploration.lab.ejb.performance.monitoring.local.suite</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>ear</packaging>
+
+	<name>com.softexploration.lab.ejb.performance.monitoring.local.suite</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>com.softexploration.lab.ejb.performance</groupId>
+		<artifactId>com.softexploration.lab.ejb.performance</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../com.softexploration.lab.ejb.performance/pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.softexploration.lab.ejb.performance</groupId>
+			<artifactId>com.softexploration.lab.ejb.performance.client.local</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.softexploration.lab.ejb.performance</groupId>
+			<artifactId>com.softexploration.lab.ejb.performance.monitoring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.softexploration.lab.ejb.performance</groupId>
+			<artifactId>com.softexploration.lab.ejb.performance.monitoring.local</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.softexploration.lab.ejb.performance</groupId>
+			<artifactId>com.softexploration.lab.ejb.performance.service.impl</artifactId>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<defaultLibBundleDir>/lib</defaultLibBundleDir>
+					<modules>
+						<ejbModule>
+							<groupId>com.softexploration.lab.ejb.performance</groupId>
+							<artifactId>com.softexploration.lab.ejb.performance.client.local</artifactId>
+						</ejbModule>
+						<ejbModule>
+							<groupId>com.softexploration.lab.ejb.performance</groupId>
+							<artifactId>com.softexploration.lab.ejb.performance.monitoring.local</artifactId>
+						</ejbModule>
+						<ejbModule>
+							<groupId>com.softexploration.lab.ejb.performance</groupId>
+							<artifactId>com.softexploration.lab.ejb.performance.service.impl</artifactId>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
